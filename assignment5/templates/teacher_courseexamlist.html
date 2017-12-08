@@ -1,0 +1,29 @@
+{% extends 'base_Teacher.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+       
+
+				<div class="col-md-10 col-md-offset-0" >
+				
+						<h3 align="center"> <b><u>{{ course.course_name}}</u> </b></h3><br><br>
+				
+						<h3 align="center" style="color:4B64B3"> <b> Select an Exam </b></h3><br>
+						{% for exam in exams %}
+						<h2 style="color:green"><a href="{% url 'teacupdatemarks' pk=exam.pk %}" style="color:green">{{ exam.exam_name }} </a></h2>
+						{% endfor %}<br>
+						
+						<h3> <b><a href="/teacher/home"> Back</a> </b></h3>
+					
+				
+				</div>
+
+				
+				
+
+           
+  
+    </div>
+{% endblock %}

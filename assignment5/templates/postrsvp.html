@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+				<div class="col-md-10 col-md-offset-0" >				
+				
+				<table width='100%'>
+				<form method="post" action="{% url 'addrsvp' %}">
+				{% csrf_token %}
+
+						<td><h3><b> email </b></h3></td>
+						<td> <input type="text" name="address" value="{{ parent.email }}"> </td>
+					</tr>
+						 <input id="eid" type="hidden" name="eid" value="{{ eventid }}"> 
+					</tr>
+					<tr><td align="center"><h3><input type="submit" name="submit" value="Submit" style="background-color:#647095;color:white"></h3></td></tr>
+					</form>					
+				</table>
+				<br>
+				<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+					
+				
+				
+				
+				</div>
+				
+
+           
+  
+    </div>
+{% endblock %}

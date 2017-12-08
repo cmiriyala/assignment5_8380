@@ -1,0 +1,48 @@
+{% extends 'base_Teacher.html' %}
+{% block content %}
+
+
+        <div>
+	
+		<br>
+        
+			
+						<div class="col-md-10 col-md-offset-0" >
+						<table class="table table-striped table-bordered table-hover" style="background-color:8893A6">
+							<thead>
+								<th> Student </th>
+								<th> Marks </th>
+								<th colspan="2"> Feedback </th>
+							</thead>
+							<tbody>
+
+
+									{% for student in students %}
+                                    <form method="post" action="{% url 'postmarks'  %}">
+                                        {% csrf_token %}
+										<tr>
+											<td>{{ student.student_id_id }}</td>
+											<td><input type="number" name="marks"></td>
+											<td><input type="text" name="feedback"></td>
+											<input type="hidden" name="studentid1" value="{{ student.student_id_id }}">
+											<input type="hidden" name="courseid1" value="{{ student.course_id_id }}">
+											<input type="hidden" name="examid" value="{{ exam.pk }}">
+                                            <td><input type="submit" name="submit" value="Ok"></td>
+										</tr>
+                                    </form>
+									{% endfor %}
+
+							</tbody>
+						</table><br>
+<h3> <b><a href="/teacher/home"> Back</a> </b></h3>
+						</div>
+						 
+			
+
+				
+				
+
+           
+  
+    </div>
+{% endblock %}

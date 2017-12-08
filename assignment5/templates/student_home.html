@@ -1,0 +1,32 @@
+{% extends 'base_Student.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+        
+
+				
+                <h3> <b>Welcome {{ student.name}} !!! </b></h3><br>
+				
+				<h3><input type=button style="background-color:#788186;color:white" onClick="location.href='{% url 'studentprofile' %}'" value=' Profile '></h3>
+				<h3><input type=button style="background-color:#788186;color:white" onClick="location.href='{% url 'slackviewmessagestu' %}'" value=' View Updates '></h3>
+
+			<br><br>
+				
+				
+				<h3> <b>Courses </b></h3>
+				
+				<br>
+				<img src="http://www.mlafgcw.org/images/image6.jpg" style="width:400px;height:200px;"> 
+				
+				{% for grade in grades %}
+				<div class="col-md-10 col-md-offset-0">
+                <h3> <a href="{% url 'studentcourse' pk=grade.pk %}">{{ grade.course_id}} </h3>
+				</div>
+				{% endfor %}
+
+           
+  
+    </div>
+{% endblock %}

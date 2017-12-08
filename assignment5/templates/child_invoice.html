@@ -1,0 +1,21 @@
+{% extends 'base_Parent.html' %}
+{% block content %}
+
+    <div>		
+				<br>
+				{% for invoice in invoices %}
+				<div class="col-md-10 col-md-offset-0" >
+                <h3> {{ invoice.name}} </h3><br>
+					<h3> {{invoice.invoice}}</h3>
+					<h3> <b>Due date :</b> {{invoice.due_date}}</h3>
+					{%if invoice.status == "Due" %}
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childinvoicepay' pk=invoice.pk %}'" value='Pay Now'></h3>
+					{% else %}
+						<h3> <b> Status: </b>{{invoice.status}}</h3>
+					{% endif %}
+				</div>
+				{% endfor %}
+				<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base_Parent.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+        
+ 
+				<h3> <b>{{ grade.course_id}} </b></h3>
+				
+				<br>
+				
+				<div class="col-md-10 col-md-offset-0" >
+				<table width='100%'>
+				<tr>
+					<td>
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcattendance' pk=grade.pk %}'" value=' Attendance'></h3>
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcschedule' pk=grade.pk %}'" value='  Schedule  '></h3>
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcsyllabus' pk=grade.pk %}'" value='  Syllabus   '></h3>
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcmarks' pk=grade.pk %}'" value='  Grades     '></h3>
+						<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcexams' pk=grade.pk %}'" value='  Exams      '></h3>						
+					</td>
+					<td>
+						<h3> <b> Course Attendance </b></h3>
+						<h3> {{ grade.attandance}} </h3>	
+<h3> <b><a href="/parent/home"> Back</a> </b></h3>					
+					</td>
+				</tr>
+				</table>
+				</div>
+
+				
+				
+
+           
+  
+    </div>
+{% endblock %}

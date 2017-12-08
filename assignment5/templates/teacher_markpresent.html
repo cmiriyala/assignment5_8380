@@ -1,0 +1,52 @@
+{% extends 'base_Teacher.htmll' %}
+{% load mathfilters %}
+{% block content %}
+
+        <div>
+	
+		<br>
+       				
+				<h3> <b><u>{{ course.course_id}}</u> </b></h3><br><br>
+				
+				<div class="col-md-10 col-md-offset-0" >
+				<table width='100%'>
+				<thead>
+					<th> Student Id </th>
+					<th> Classes Attended </th>
+					<th colspan="2">Actions</th>
+				</thead>
+				<tbody>
+				
+				{% for student in list %}
+				<tr>
+					<td>{{ student.student_id_id }}</td>
+					<td>{{ student.attandance }}</td>
+					<form action="{% url 'present' %}" method="post">
+					{% csrf_token %}
+    					<input id="courseid" type="hidden" name="courseid" value="{{course.id}}">
+						<input id="studid" type="hidden" name="studid" value="{{student.student_id_id}}">
+						<input id="attendance" type="hidden" name="attendance" value="{{student.attandance}}">
+						{% if student.student_id_id == stuemail %}
+							<td>Marked Present</td>
+						{% else %}
+							<td><input type="submit" value="Present"></td>
+						{% endif %}
+					</form>
+					<form action="{% url 'absentmsg' %}" method="post">
+					{% csrf_token %}
+    					<input id="courseid" type="hidden" name="courseid" value="{{course.id}}">
+						<input id="studid" type="hidden" name="studid" value="{{student.student_id_id}}">
+    					<td><input type="submit" value="Absent"></td>
+					</form>
+                    
+				</tr>
+				{% endfor %}
+				</tbody>
+				</table>
+				<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+				</div>
+						
+					
+				 
+    </div>
+{% endblock %}

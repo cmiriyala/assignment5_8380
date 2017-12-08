@@ -1,0 +1,27 @@
+{% extends 'base_Parent.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+        
+
+				
+                <h3> <b>Welcome {{ parent.name}} !!! </b></h3>
+				<br><br>
+				
+				<br>
+				
+				{% for child in children %}
+				<div class="col-md-10 col-md-offset-0" >
+                <h3> {{ child.student_id}} </h3>
+					<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcrecords' pk=child.student_id_id %}'" value='        Course Records        '></h3>
+					<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childinvoice' pk=child.student_id_id %}'" value='          Pending Invoice           '></h3>
+				</div>
+				<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+				{% endfor %}
+
+           
+  
+    </div>
+{% endblock %}

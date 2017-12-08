@@ -1,0 +1,60 @@
+{% extends 'base_Parent.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+        
+
+				<div class="col-md-10 col-md-offset-0" >				
+                
+				<h3> <b>Welcome {{ parent.name}} !!! </b></h3><br>
+				
+				<table width='100%'>
+					<tr>
+						<td><h3><b> Name </b></h3></td>
+						<td> <h3>{{parent.name}}</h3> </td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td><h3><b> Address </b></h3></td>
+						<td> <h3>{{parent.address}}</h3> </td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td><h3><b> City </b></h3></td>
+						<td> <h3>{{parent.city}}</h3> </td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td><h3><b> State </b></h3></td>
+						<td> <h3>{{parent.state}}</h3> </td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td><h3><b> Zipcode </b></h3></td>
+						<td> <h3>{{parent.zipcode}}</h3> </td>
+					</tr>
+					<tr></tr>					
+					<tr>
+						<td><h3><b> Email </b></h3></td>
+						<td> <h3>{{parent.email}}</h3> </td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td><h3><b> Mobile Phone </b></h3></td>
+						<td> <h3>{{parent.cell_phone}}</h3> </td>
+					</tr>						
+				</table>
+				<br>
+				<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'editparprofile' %}'" value=' Edit '></h3>
+				
+				<h3> <b><a href="/parent/home"> Back</a> </b></h3>
+				
+				</div>
+				
+
+           
+  
+    </div>
+{% endblock %}

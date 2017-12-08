@@ -1,0 +1,33 @@
+{% extends 'base_Parent.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+        
+
+				
+                <h3> <b>Welcome {{ parent.name}} !!! </b></h3><br>
+				<h3><input type=button style="background-color:#788186;color:white" onClick="location.href='{% url 'parentprofile' %}'" value=' Profile '></h3>
+				<br><br>
+
+                <form method="post" action="{% url 'phverify'  %}">
+  {% csrf_token %}
+  <input type="hidden" name="parentid" value="{{ parent.pk }}">
+  <input type="submit" name="name" value="phone verification">
+</form>
+            <br>
+
+				
+				{% for child in children %}
+				<div class="col-md-10 col-md-offset-0" >
+                <h3> {{ child.student_id}} </h3><br>
+					<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childcrecords' pk=child.pk %}'" value='Course Records'></h3>
+					<h3> <input type=button style="background-color:#647095;color:white" onClick="location.href='{% url 'childinvoice' pk=child.pk %}'" value='       Invoice       '></h3><br>
+				</div>
+				{% endfor %}
+
+           
+  
+    </div>
+{% endblock %}

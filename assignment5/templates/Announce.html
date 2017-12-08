@@ -1,0 +1,14 @@
+{% extends 'base_Teacher.html' %}
+
+{% block content %}
+
+	<div class="panel panel-default">
+	<br>
+    <form method="POST" class="announce">{% csrf_token %}
+		<h2> <span class="label label-default">Announce:</span></h2>
+		<textarea class="form-control form-control-lg" rows="6"  type="textarea" name="mailtext" ></textarea>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Mail</button>
+    </form>
+			<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+	</div>
+{% endblock %}

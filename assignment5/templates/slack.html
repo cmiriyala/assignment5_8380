@@ -1,0 +1,13 @@
+{% extends 'base_Teacher.html' %}
+{% block content %}
+
+<p class="alert alert-info">{{ slackmsg1 }}</p><br><br>
+<p class="alert alert-info">{{ slackmsg2 }}</p><br><br>
+<p class="alert alert-info">{{ slackmsg3 }}</p><br>
+<p class="alert alert-info">{{ slackmsg4 }}</p><br>
+<p class="alert alert-info">{{ slackmsg5 }}</p><br>
+
+<a href="{% url 'postupdate' %}" class="btn btn-primary btn-lg btn-block">post update</a>
+
+
+{% endblock %}

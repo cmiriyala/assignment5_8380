@@ -1,0 +1,64 @@
+{% extends 'base_Teacher.html' %}
+{% load mathfilters %}
+{% block content %}
+
+        <div>
+	
+		<br>
+       				
+				<h3> <b><u>{{ course.course_id}}</u> </b></h3><br><br>
+				
+				<div class="col-md-10 col-md-offset-0" >
+				<table width='100%'>
+				<thead>
+					<th> Student Id </th>
+					<th> Classes Attended </th>
+					<th colspan="2">Actions</th>
+				</thead>
+				<tbody>
+				
+				{% for student in listgrade %}
+				<tr>
+					<td>{{ student.student_id_id }}</td>
+					<td>{{ student.attandance }}</td>
+					<form action="{% url 'present' %}" method="post">
+					{% csrf_token %}
+    					<input id="courseid" type="hidden" name="courseid" value="{{course.id}}">
+						<input id="studid" type="hidden" name="studid" value="{{student.student_id_id}}">
+						{% for courseclass in courseclassobj %}
+							<input id="class" type="hidden" name="class" value="{{courseclass.class_name}}">
+							{%if student.student_id_id == courseclass.student_id_id %}
+								{%if courseclass.status == 'P' %}
+									<td>Marked Present</td>
+								{% else %}
+									<td><input type="submit" value="Present"></td>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</form>
+					<form action="{% url 'absentmsg' %}" method="post">
+					{% csrf_token %}
+    					<input id="courseid" type="hidden" name="courseid" value="{{course.id}}">
+						<input id="studid" type="hidden" name="studid" value="{{student.student_id_id}}">
+						{% for courseclass in courseclassobj %}
+							<input id="class" type="hidden" name="class" value="{{courseclass.class_name}}">
+							{%if student.student_id_id == courseclass.student_id_id %}
+								{%if courseclass.status == 'A' %}
+									<td>Marked Absent</td>
+								{% else %}
+									<td><input type="submit" value="Absent"></td>
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+					</form>
+                    
+				</tr>
+				{% endfor %}
+				</tbody>
+				</table>
+				</div>
+						
+					
+				 
+    </div>
+{% endblock %}

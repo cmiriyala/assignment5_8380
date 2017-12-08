@@ -1,0 +1,70 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:#AF6079;color:#fff">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" style="font-size:22px;color:white"><b>Home</b> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about" style="font-size:22px;color:white"><b>About</b></a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/event" style="font-size:22px;color:white"><b>Events</b></a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/contact" style="font-size:22px;color:white"><b>Contact us</b></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/gallery" style="font-size:22px;color:white"><b>Gallery</b></a>
+      </li>
+
+    </ul>
+	            <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">    <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="/accounts/logout" style="font-size:22px;color:white"><b>Logout</b></a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/admin" style="font-size:22px;color:white"><b>Admin</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/accounts/login" style="font-size:22px;color:white"><b>Login</b></a></li>
+					<li class="nav-item"><a class="nav-link" href="/register" style="font-size:22px;color:white"><b>Register</b></a></li>
+                {% endif %}
+            </ul>
+   
+  </div>
+</nav>	
+
+<div class="content container">
+    
+        
+            {% block content %}
+            {% endblock %}
+        
+   
+</div>
+
+</body>
+</html>
+
+

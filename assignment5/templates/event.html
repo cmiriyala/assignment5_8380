@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <div>
+	
+		<br>
+        
+            {% for event in events %}
+				<div class="col-md-10 col-md-offset-0" >
+                <h3> <b>{{ event.event_name}} </b></h3>
+				<p style="font-size:18px"> {{ event.event_description}} </p>
+                    <input onclick='responsiveVoice.speak("{{ event.event_description}}");' type='button' value='🔊 Play' />
+				</div>
+            {% endfor %}
+           
+  
+    </div>
+    </body>
+    </html>
+{% endblock %}

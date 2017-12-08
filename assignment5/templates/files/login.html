@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if messages %}
+
+    {% for message in messages %}
+    <p class="alert alert-danger" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+
+{% endif %}
+<div class="panel panel-default">
+    <br>
+    <form method="POST" class="login">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Login</button>
+    </form> <br>
+
+
+    <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+	</div>
+
+{% endblock %}

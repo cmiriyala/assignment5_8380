@@ -1,0 +1,13 @@
+{% extends 'base_Teacher.html' %}
+{% block content %}
+
+
+<form action="{% url 'slack1' %}" method="post">
+					{% csrf_token %}
+	<textarea class="form-control form-control-lg" rows="6"  type="textarea" name="postupdate" placeholder="enter here to update on slack"></textarea>
+                    <input type="submit" value="Post " class="btn btn-primary btn-lg btn-block">
+</form>
+
+
+
+{% endblock %}

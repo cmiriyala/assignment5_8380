@@ -1,0 +1,26 @@
+{% extends 'base_Teacher.html' %}
+{% block content %}
+
+        <div>
+	
+		<br>
+       
+
+				<div class="col-md-10 col-md-offset-0" >
+				
+						<h3 align="center"> <b><u>{{ course.course_name}}</u> </b></h3><br><br>
+				
+						<h3 align="center" style="color:4B64B3"> <b> Course Syllabus </b></h3><br>
+						<h3 align="center"> <pre style="width:100%;overflow-y:hidden;text-align:center">{{ course.syllabus}} </pre></h3><br>
+						<h3> <b><a href="{{request.META.HTTP_REFERER}}"> Back</a> </b></h3>
+					
+				
+				</div>
+
+				
+				
+
+           
+  
+    </div>
+{% endblock %}
